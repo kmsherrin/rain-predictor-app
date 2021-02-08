@@ -83,7 +83,7 @@
 
     function get_rain_prediction(city, data) {
         console.log(data)
-      fetch(`http://127.0.0.1:8000/predict/${city}`, {
+      fetch(`https://rain-predictor-api.herokuapp.com/predict/${city}`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -100,7 +100,7 @@
     }
 
     function get_todays_data(city) {
-      fetch(`http://127.0.0.1:8000/obs/${city}`, {
+      fetch(`https://rain-predictor-api.herokuapp.com/obs/${city}`, {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Request-Method": "GET",
