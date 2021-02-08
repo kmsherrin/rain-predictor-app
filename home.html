@@ -100,6 +100,7 @@
     }
 
     function get_todays_data(city) {
+        document.getElementById("prediction").innerHTML = "Thinking ...";
       fetch(`https://rain-predictor-api.herokuapp.com/obs/${city}`, {
         headers: {
           "Access-Control-Allow-Origin": "*",
