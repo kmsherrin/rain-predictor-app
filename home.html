@@ -81,8 +81,8 @@
     });
 
     function get_rain_prediction(city, data) {
-      
-      fetch(`https://rain-predictor-api.herokuapp.com/predict/${city}`, {
+        console.log(data)
+      fetch(`http://127.0.0.1:8000/predict/${city}`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -95,17 +95,18 @@
     }
 
     function get_todays_data(city) {
-      fetch(`https://rain-predictor-api.herokuapp.com/obs/${city}`, {
+      fetch(`http://127.0.0.1:8000/obs/${city}`, {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Request-Method": "GET",
           "Accept": "application/json"
         },
       })
-      .then((response) => {
-          console.log(response)
-        get_rain_prediction(city, response);
+      .then((response) => response.json())
+      .then((data) => {
+        get_rain_prediction(city, data);
       })
+        
     }
   </script>
 </html>
